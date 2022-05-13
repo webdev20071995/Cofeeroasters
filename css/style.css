@@ -9,21 +9,36 @@
 }
 
 @font-face {
-    font-family: 'Roboto';
-    src: url('../fonts/Roboto-Medium.woff2') format('woff2'),
-        url('../fonts/Roboto-Medium.woff') format('woff');
+    font-family: "Roboto";
+    src: url("../fonts/Roboto-Medium.woff2") format("woff2"),
+        url("../fonts/Roboto-Medium.woff") format("woff");
     font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Roboto';
-    src: url('../fonts/Roboto-Bold.woff2') format('woff2'),
-        url('../fonts/Roboto-Bold.woff') format('woff');
+    font-family: "Roboto";
+    src: url("../fonts/Roboto-Bold.woff2") format("woff2"),
+        url("../fonts/Roboto-Bold.woff") format("woff");
     font-weight: bold;
     font-style: normal;
     font-display: swap;
+}
+
+/* CUSTOM-PROPS */
+:root{
+    --text-color:#333;
+    --accent-color-green:#0a775f;
+    --outline-color: var(--accent-color-green);
+    --accent-color-green-80: rgba(10, 119, 95, 0.8);
+    --accent-color-green-60: rgba(10, 119, 95, 0.6);
+    --accent-color-light-brown: #c99b67;
+    --accent-color-light-brown-80: rgb(201, 155, 103, 0.8);
+    --accent-color-light-brown-80: rgb(201, 155, 103, 0.6);
+    --light-brown: #f3d7b7;
+    --light-bg: #f8f8f2;
+    --outline-color: var(--accent-color-green);
 }
 
 /* GLOBAL */
@@ -43,13 +58,14 @@ body{
     display: flex;
     flex-direction: column;
     height: 100%;
+    background-color: #fff; 
+    font-family: "Roboto", "Arial" sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 34px;
     padding: 0;
     margin: 0;
-    font-family: "Roboto", "Arial", sans-serif;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 1.75px;
-    background-color: #f7f7fe;
+    overflow-x: hidden;
     color:var(--text-color);
 }
 
@@ -58,23 +74,19 @@ img{
     height: auto;
 }
 
-*, ::before, ::after {
-    box-sizing: inherit;
+*:focus{
+    outline: 2px dashed var(--outline-color);
+    outline-offset: 2px;
 }
 
-.site-header-wrappeer {
-    display: flex;
-    align-items: center;
-    padding-top: 40px;
-    padding-bottom: 40px;
-    padding-left: 30px;
-    padding-right: 30px
+*, ::before, ::after {
+    box-sizing: inherit;
 }
 
 /* CONTAINER */
 .container{
     width: 100%;
-    max-width: 1150px;
+    max-width: 1440px;
     padding-left: 20px;
     padding-right: 20px;
     margin-left: auto;
@@ -82,8 +94,232 @@ img{
 }
 
 
+/* BUTTON */
+.button {
+    display: inline-block;
+    padding: 16px 24px;
+    bottom: 0;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: normal;
+    border-radius: 100px;
+    cursor: pointer;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+} 
+
+.button-green {
+    background-color: var(--accent-color-green);
+    color: #fff;
+}
+
 /* MAIN-CONTENT */
 .main-content{
     flex-grow: 1;
+    margin-top: 20px;
+    padding-bottom: 50px;
+}
+
+/* SITE-HEADER-INTRO-WRAPPER */
+.site-header-hero-wrapper{
+    background-image: url(../img/Rectangle\ 678.jpg);
+}
+
+/* SITE-HEADER */
+.site-header {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.site-header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 50px;
+    padding-right: 50px; 
+}
+
+.site-header-logo-link {
+    display: flex;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.site-header-logo-img {
+    width: 235px;
+    height: 24px;
+    object-fit: contain;
+}
+
+
+/* SITENAV */
+.sitenav-list {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+.sitenav-item:not(:last-child) {
+    margin-right: 40px;
+}
+.sitenav-link {
+    display: block;
+    font-size: 12px;
+    line-height: normal;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--text-color);
+    white-space: nowrap;
+}
+
+.sitenav-link:hover{
+    color: var(--accent-color-green);
+}
+
+.sitenav-link:active{
+    /* color: var(--accent-color-green); */
+    opacity: 0.6;
+}
+
+.site-header-logo-link:hover{
+    opacity: 0.8;
+}
+
+.site-header-logo-link:active{
+    opacity: 0.6;
+}
+
+/* HERO */
+.hero-container {
+    display: flex;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.hero-info-wrapper {
+    width: 100%;
+    padding-top: 116px;
+    padding-bottom: 100px;
+    max-width: 730px;
+    padding-left: 150px;
+    padding-right: 116px;
+}
+
+.hero-heading {
+    margin-top: 0;
+    color: #000;
+    margin-bottom: 24px;
+    font-size: 64px;
+    line-height: normal;
+}
+
+.hero-text {
+    margin-top: 0;
+    margin-bottom: 34px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.hero-img {
+    width: 710px;
+    height: 596px;
+    object-fit: cover;
+}
+
+.hero-img-index{
+    width: 696px;
+}
+
+
+/*  INDEX-COLLECTION   */
+.index-collection-inner {
+    position: absolute;
+    padding: 50px 143px;
+    background-color: var(--light-bg);
+    background-image: url(../img/Rectangle\ 116.jpg);
+}
+
+.index-collection-heading {
+    margin-top: 0;
+    margin-bottom: 80px;
+    font-size: 50px;
+    line-height: normal;
+    text-align: center;
+    text-transform: uppercase;
+    color: #000;
+}
+
+.index-collection-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.index-collecion-item {
+    display: flex;
+    align-items: center;
+}
+
+.index-collecion-item:nth-last-child(even){
+    flex-direction: row-reverse;
+}
+
+.index-collection-img {
+    flex-shrink: 0;
+    width: 450px;
+    height: 375px;
+    object-fit: cover;
+}
+
+.index-collection-info {
+    flex-grow: 1;
+    padding: 117px;
+    padding-right: 117px;
+}
+
+.index-collection-title {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 48px;
+    line-height: normal;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.index-collection-text {
+    margin: 0;
+    font-size: 22px;
+    line-height: 32px;
+}
+
+.index-collection-text:not(:last-child){
+    margin-bottom: 10px;
+}
+/* 
+.index-collection-item:nth-last-child(odd) .index-collection-info{
+    padding-left: 117px;
+}
+
+.index-collection-item:nth-last-child(even) .index-collection-info{
+    padding-right: 117px;
+} */
+
+
+
+
+/* RETINA-BG */
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) { 
+    .site-header-hero-wrapper{
+        background-image: url(../img/Rectangle\ 678@2x.png);
+    }
 }
 
